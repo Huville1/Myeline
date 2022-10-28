@@ -38,7 +38,7 @@ draw.rectangle((0, 0, oled.width, oled.height), outline=255, fill=255)
 
 while True:
     draw.rectangle((0, 0, oled.width, oled.height), outline=0, fill=0)
-    draw.line((0,0,oled.width,0), fill = 255, width = 10)
+    draw.line((0,0,oled.width,0), fill = 255, width = 5)
 
     oled.image(image)
     oled.show()
