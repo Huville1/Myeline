@@ -35,3 +35,7 @@ draw = ImageDraw.Draw(image)
 
 # Draw a white background
 draw.rectangle((0, 0, oled.width, oled.height), outline=255, fill=255)
+
+while True:
+    draw.rectangle((0, 0, oled.width, oled.height), outline=0, fill=0)
+    draw.rectangle((0, 0, oled.width, 2), outline=0, fill=255)
