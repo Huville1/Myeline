@@ -3,7 +3,7 @@ import board
 import busio
 import digitalio
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageColor
 import adafruit_ssd1306
 
 
@@ -39,8 +39,8 @@ draw.rectangle((0, 0, oled.width, oled.height), outline=255, fill=255)
 while True:
     draw.rectangle((0, 0, oled.width, oled.height), outline=0, fill=0)
     #below are border rep spine
-    draw.line((0,2,oled.width,0), fill = (255,0,0), width = 5)
-    draw.line((0,oled.height-2,oled.width,oled.height-2), fill = (255,0,0), width = 5)
+    draw.line((0,2,oled.width,0), fill = 'red', width = 5)
+    draw.line((0,oled.height-2,oled.width,oled.height-2), fill = 'red', width = 5)
     oled.image(image)
     oled.show()
     time.sleep(LOOPTIME)
