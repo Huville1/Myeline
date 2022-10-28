@@ -62,7 +62,7 @@ while True:
     Temp = subprocess.check_output(cmd, shell = True )
 
     # Pi Stats Display
-    draw.text((0, 0), "Hello " + str(IP,'utf-8'), font=font, fill=255)
+    draw.text((0, 0), "IP:" + str(IP,'utf-8'), font=font, fill=255)
     draw.text((0, 16), str(CPU,'utf-8') + "LA", font=font, fill=255)
     draw.text((80, 16), str(Temp,'utf-8') , font=font, fill=255)
     draw.text((0, 32), str(MemUsage,'utf-8'), font=font, fill=255)
