@@ -46,10 +46,10 @@ draw.line((0,16,oled.width,16), fill = 255, width= 1)
 draw.rectangle ((0,17,15,oled.height-1),outline = 255, fill =0);
 draw.rectangle ((7,19,9,21),outline = 255, fill = 0)
 draw.rectangle ((7,26,9,29),outline = 255, fill = 0)
-draw.rectangle ((7,33,9,26),outline = 255, fill = 0)
-draw.rectangle ((7,77,9,80),outline = 255, fill = 0)
+draw.rectangle ((7,33,9,36),outline = 255, fill = 0)
 draw.rectangle ((7,40,9,43),outline = 255, fill = 0)
 draw.rectangle ((7,47,9,50),outline = 255, fill = 0)
+draw.rectangle ((7,54,9,57),outline = 255, fill = 0)
 # lnTh = 10
 # # electrode design
 # enum = 1
