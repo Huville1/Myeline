@@ -37,12 +37,18 @@ draw = ImageDraw.Draw(image)
 draw.rectangle((0, 0, oled.width, oled.height), outline=255, fill=255)
 
 font = ImageFont.truetype('PixelOperator.ttf', 15)
+
 draw.rectangle((0, 0, oled.width, oled.height), outline=0, fill=0)
+
 draw.text((0, 0), "E1", font=font, fill=255)
 draw.line((0,16,oled.width,16), fill = 255, width= 1)
 #electrode shell
 draw.rectangle ((0,17,15,oled.height),outline = 255, fill =0);
-draw.rectangle ((7,20,11,24),outline = 255, fill = 0)
+draw.rectangle ((5,20,9,24),outline = 255, fill = 0)
+draw.rectangle ((5,26,9,30),outline = 255, fill = 0)
+draw.rectangle ((5,32,9,36),outline = 255, fill = 0)
+draw.rectangle ((5,38,9,42),outline = 255, fill = 0)
+draw.rectangle ((5,44,9,48),outline = 255, fill = 0)
 
 # lnTh = 10
 # # electrode design
