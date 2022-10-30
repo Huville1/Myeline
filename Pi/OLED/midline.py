@@ -36,9 +36,10 @@ draw = ImageDraw.Draw(image)
 # Draw a white background
 draw.rectangle((0, 0, oled.width, oled.height), outline=255, fill=255)
 
-font = ImageFont.truetype('PixelOperator.ttf', 16)
+font = ImageFont.truetype('PixelOperator.ttf', 15)
 draw.rectangle((0, 0, oled.width, oled.height), outline=0, fill=0)
 draw.text((0, 0), "E1", font=font, fill=255)
+draw.line((16,0,16,oled.width), fill = 255, width= 1)
 # lnTh = 10
 # # electrode design
 # enum = 1
