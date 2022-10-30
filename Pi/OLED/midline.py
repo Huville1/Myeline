@@ -44,7 +44,7 @@ eHeight = (oled.height - lnTh)-lnTh
 
 #black background
 draw.rectangle((0, 0, oled.width, oled.height), outline=0, fill=0)
-draw.rectangle((0,0,10,20), outline= 0,fill=255)
+draw.rectangle((0,0,10,17), outline= 0,fill=255)
 
 #below are border rep spine
 draw.line((0,lnTh,oled.width,lnTh), fill = 125, width = 5)
