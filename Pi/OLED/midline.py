@@ -45,6 +45,7 @@ while True:
     #below are border rep spine
     draw.line((0,lnTh,oled.width,lnTh), fill = 255, width = 5)
     draw.line((0,oled.height-lnTh,oled.width,oled.height-lnTh), fill = 125, width = 5)
+    draw.line((0,oled.height-lnTh,oled.width,oled.height-lnTh), fill = 125, width = 5)
     oled.image(image)
     oled.show()
     time.sleep(LOOPTIME)
