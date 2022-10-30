@@ -44,12 +44,12 @@ draw.text((0, 0), "E1", font=font, fill=255)
 draw.line((0,16,oled.width,16), fill = 255, width= 1)
 #electrode shell
 draw.rectangle ((0,17,15,oled.height-1),outline = 255, fill =0);
-draw.rectangle ((5,23,9,27),outline = 255, fill = 0)
-draw.rectangle ((5,41,9,45),outline = 255, fill = 0)
-draw.rectangle ((5,59,9,63),outline = 255, fill = 0)
-draw.rectangle ((5,77,9,81),outline = 255, fill = 0)
-draw.rectangle ((5,95,9,99),outline = 255, fill = 0)
-draw.rectangle ((5,113,9,117),outline = 255, fill = 0)
+draw.rectangle ((7,19,9,21),outline = 255, fill = 0)
+draw.rectangle ((7,26,9,29),outline = 255, fill = 0)
+draw.rectangle ((7,33,9,26),outline = 255, fill = 0)
+draw.rectangle ((7,77,9,80),outline = 255, fill = 0)
+draw.rectangle ((7,40,9,43),outline = 255, fill = 0)
+draw.rectangle ((7,47,9,50),outline = 255, fill = 0)
 # lnTh = 10
 # # electrode design
 # enum = 1
