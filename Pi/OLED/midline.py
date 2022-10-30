@@ -41,10 +41,10 @@ lnTh = 10
 draw.rectangle
 while True:
     draw.rectangle((0, 0, oled.width, oled.height), outline=0, fill=0)
-    draw.line((0,0,oled.width,1), fill = 'blue', width = 1)
+    
     #below are border rep spine
-    draw.line((0,lnTh,oled.width,lnTh), fill = 'red', width = 5)
-    draw.line((0,oled.height-lnTh,oled.width,oled.height-lnTh), fill = 'red', width = 5)
+    draw.line((0,lnTh,oled.width,lnTh), fill = 255, width = 5)
+    draw.line((0,oled.height-lnTh,oled.width,oled.height-lnTh), fill = 125, width = 5)
     oled.image(image)
     oled.show()
     time.sleep(LOOPTIME)
