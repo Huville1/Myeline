@@ -36,11 +36,15 @@ draw = ImageDraw.Draw(image)
 # Draw a white background
 draw.rectangle((0, 0, oled.width, oled.height), outline=255, fill=255)
 
+lnTh = 10
+# electrode design
+draw.rectangle
 while True:
     draw.rectangle((0, 0, oled.width, oled.height), outline=0, fill=0)
+    draw.line((0,0,oled.width,1), fill = 'blue', width = 1)
     #below are border rep spine
-    draw.line((0,10,oled.width,10), fill = 'red', width = 5)
-    draw.line((0,oled.height-10,oled.width,oled.height-10), fill = 'red', width = 5)
+    draw.line((0,lnTh,oled.width,lnTh), fill = 'red', width = 5)
+    draw.line((0,oled.height-lnTh,oled.width,oled.height-lnTh), fill = 'red', width = 5)
     oled.image(image)
     oled.show()
     time.sleep(LOOPTIME)
