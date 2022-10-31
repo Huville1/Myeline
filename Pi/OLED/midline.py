@@ -42,7 +42,7 @@ draw.rectangle((0, 0, oled.width, oled.height), outline=0, fill=0)
 draw.line((0,16,oled.width,16), fill = 255, width= 1)
 
 #E1
-enum = 1
+enum = 3
 xSpace = np.floor(128/(2*enum))
 i=0
 while i < enum:
