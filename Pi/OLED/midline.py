@@ -2,7 +2,7 @@ import time
 import board
 import busio
 import digitalio
-
+import numpy as np
 from PIL import Image, ImageDraw, ImageFont, ImageColor
 import adafruit_ssd1306
 
@@ -43,12 +43,14 @@ draw.line((0,16,oled.width,16), fill = 255, width= 1)
 
 #E1
 enum = 1
-xSpace = 128/2(*enum)
+xSpace = np.floor(128/(2*enum))
 i=0
 while i < enum:
     draw.text((0+(i*xSpace),0), "E" + str(i+1), font = font, fill = 255)
     i+=1
-
+oled.image(image)
+oled.show()
+time.sleep(LOOPTIME)
 
 
 
@@ -81,6 +83,4 @@ while i < enum:
 
 
 #showing the image
-oled.image(image)
-oled.show()
-time.sleep(LOOPTIME)
+
