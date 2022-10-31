@@ -43,7 +43,7 @@ draw.line((0,16,oled.width,16), fill = 255, width= 1)
 
 #E1
 enum = 3
-xSpace = np.floor(128/(2*enum))
+xSpace = np.floor(128/(1+enum))
 i=0
 while i < enum:
     if (enum == 1):
