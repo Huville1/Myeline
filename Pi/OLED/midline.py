@@ -46,12 +46,12 @@ draw.text((0, 0), "E1", font=font, fill=255)
 draw.rectangle ((0,17,15,oled.height-1),outline = 255, fill =0);
 
 #mini electrode dots -> need to make this into a loop
-draw.rectangle ((6,22,10,26),outline = 255, fill = 0)
-draw.rectangle ((6,29,10,33),outline = 255, fill = 0)
-draw.rectangle ((6,36,10,40),outline = 255, fill = 0)
-draw.rectangle ((6,43,10,47),outline = 255, fill = 0)
-draw.rectangle ((6,50,10,54),outline = 255, fill = 0)
-draw.rectangle ((6,57,10,61),outline = 255, fill = 0)
+draw.rectangle ((6,20,10,24),outline = 255, fill = 0)
+draw.rectangle ((6,27,10,31),outline = 255, fill = 0)
+draw.rectangle ((6,34,10,38),outline = 255, fill = 0)
+draw.rectangle ((6,41,10,45),outline = 255, fill = 0)
+draw.rectangle ((6,48,10,52),outline = 255, fill = 0)
+draw.rectangle ((6,55,10,59),outline = 255, fill = 0)
 #electrode name splitter
 draw.line((16,0,16,16), fill = 255, width= 1)
 
