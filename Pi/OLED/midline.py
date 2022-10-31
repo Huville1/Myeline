@@ -39,17 +39,19 @@ draw.rectangle((0, 0, oled.width, oled.height), outline=255, fill=255)
 font = ImageFont.truetype('PixelOperator.ttf', 15)
 
 draw.rectangle((0, 0, oled.width, oled.height), outline=0, fill=0)
-
-draw.text((0, 0), "E1", font=font, fill=255)
 draw.line((0,16,oled.width,16), fill = 255, width= 1)
-#electrode shell
+
+#E1
+draw.text((0, 0), "E1", font=font, fill=255)
 draw.rectangle ((0,17,15,oled.height-1),outline = 255, fill =0);
-draw.rectangle ((6,20,9,22),outline = 255, fill = 0)
-draw.rectangle ((6,26,9,29),outline = 255, fill = 0)
-draw.rectangle ((6,33,9,36),outline = 255, fill = 0)
-draw.rectangle ((6,40,9,43),outline = 255, fill = 0)
-draw.rectangle ((6,47,9,50),outline = 255, fill = 0)
-draw.rectangle ((6,54,9,57),outline = 255, fill = 0)
+draw.rectangle ((6,22,8,24),outline = 255, fill = 0)
+draw.rectangle ((6,28,8,30),outline = 255, fill = 0)
+draw.rectangle ((6,34,8,36),outline = 255, fill = 0)
+draw.rectangle ((6,40,8,42),outline = 255, fill = 0)
+draw.rectangle ((6,47,8,50),outline = 255, fill = 0)
+draw.rectangle ((6,53,8,55),outline = 255, fill = 0)
+draw.line((16,0,16,oled.height), fill = 255, width= 1)
+
 # lnTh = 10
 # # electrode design
 # enum = 1
