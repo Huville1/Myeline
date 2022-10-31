@@ -46,7 +46,10 @@ enum = 3
 xSpace = np.floor(128/(2*enum))
 i=0
 while i < enum:
-    draw.text((xSpace-8,0), "E" + str(i+1), font = font, fill = 255)
+    if (enum == 1):
+        draw.text((xSpace-8,0), "E" + str(i+1), font = font, fill = 255)
+    else:
+        draw.text((0 + (i*xSpace)-8,0), "E" + str(i+1), font = font, fill = 255)
     i+=1
 oled.image(image)
 oled.show()
