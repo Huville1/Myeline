@@ -49,7 +49,7 @@ while i < enum:
     if (enum == 1):
         draw.text((xSpace-8,0), "E" + str(i+1), font = font, fill = 255)
     else:
-        draw.text((0 + (i*xSpace)-8,0), "E" + str(i+1), font = font, fill = 255)
+        draw.text((0 + ((i+1)*xSpace)-8,0), "E" + str(i+1), font = font, fill = 255)
     i+=1
 oled.image(image)
 oled.show()
