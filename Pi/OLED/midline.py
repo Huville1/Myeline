@@ -42,15 +42,23 @@ draw.rectangle((0, 0, oled.width, oled.height), outline=0, fill=0)
 draw.line((0,16,oled.width,16), fill = 255, width= 1)
 
 #E1
-enum = 8 # limit is 8 electrodes
+enum = 1 # limit is 8 electrodes
 xSpace = np.floor(128/(1+enum))
 i=0
 while i < enum:
     if (enum == 1):
         draw.text((xSpace-8,0), "E" + str(i+1), font = font, fill = 255)
+        draw.rectangle((xSpace-8, 17, xSpace+8, oled.height-1), outline = 255, fill = 0)
+        draw.rectangle ((xSpace-2,21,xSpace+2,25),outline = 255, fill = 0)
+        draw.rectangle ((xSpace-2,28,xSpace+2,32),outline = 255, fill = 0)
+        draw.rectangle ((xSpace-2,35,xSpace+2,39),outline = 255, fill = 0)
+        draw.rectangle ((xSpace-2,42,xSpace+2,46),outline = 255, fill = 0)
+        draw.rectangle ((xSpace-2,49,xSpace+2,53),outline = 255, fill = 0)
+        draw.rectangle ((xSpace-2,56,xSpace+2,60),outline = 255, fill = 0)
     else:
-        draw.text((0 + ((i+1)*xSpace)-8,0), "E" + str(i+1), font = font, fill = 255)
-   
+        x = 0 + ((i+1)*xSpace)-8
+        draw.text((x,0), "E" + str(i+1), font = font, fill = 255)
+       
     i+=1
 oled.image(image)
 oled.show()
