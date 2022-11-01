@@ -42,7 +42,7 @@ draw.rectangle((0, 0, oled.width, oled.height), outline=0, fill=0)
 draw.line((0,16,oled.width,16), fill = 255, width= 1)
 
 #E1
-enum = 6 # limit is 8 electrodes
+enum = 8 # limit is 8 electrodes
 xSpace = np.floor(128/(1+enum))
 i=0
 while i < enum:
