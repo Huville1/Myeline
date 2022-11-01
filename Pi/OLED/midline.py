@@ -68,10 +68,10 @@ def coloring(ind:list, enum: int, oled: adafruit_ssd1306)->Image:
         i = 0
         while i < enum:
             if (enum == 1):
-                draw.rectangle((xSpace-1,yVals[ind[i]-1]-1,xSpace+1,yVals[ind[i]-1]+1), outline = 0, fill =255)
+                draw.rectangle((xSpace-2,yVals[ind[i]-1]-2,xSpace+2,yVals[ind[i]-1]+2), outline = 0, fill =255)
             else:
                 x = 0 + ((i+1)*xSpace)
-                draw.rectangle((x-1,yVals[ind[i]-1]-1,x+1,yVals[ind[i]-1]+1),outline = 0,fill = 255)
+                draw.rectangle((x-2,yVals[ind[i]-1]-2,x+2,yVals[ind[i]-1]+2),outline = 0,fill = 255)
             i+=1
     return image
 
