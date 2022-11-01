@@ -56,9 +56,15 @@ while i < enum:
         draw.rectangle ((xSpace-2,49,xSpace+2,53),outline = 255, fill = 0)
         draw.rectangle ((xSpace-2,56,xSpace+2,60),outline = 255, fill = 0)
     else:
-        x = 0 + ((i+1)*xSpace)-8
-        draw.text((x,0), "E" + str(i+1), font = font, fill = 255)
-       
+        x = 0 + ((i+1)*xSpace)
+        draw.text((x-8,0), "E" + str(i+1), font = font, fill = 255)
+        draw.rectangle((x-8, 17, x+8, oled.height-1), outline = 255, fill = 0)
+        draw.rectangle ((x-2,21,x+2,25),outline = 255, fill = 0)
+        draw.rectangle ((x-2,28,x+2,32),outline = 255, fill = 0)
+        draw.rectangle ((x-2,35,x+2,39),outline = 255, fill = 0)
+        draw.rectangle ((x-2,42,x+2,46),outline = 255, fill = 0)
+        draw.rectangle ((x-2,49,x+2,53),outline = 255, fill = 0)
+        draw.rectangle ((x-2,56,x+2,60),outline = 255, fill = 0)
     i+=1
 oled.image(image)
 oled.show()
