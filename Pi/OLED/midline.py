@@ -1,5 +1,6 @@
 #methods for displaying
 
+from array import array
 import time
 import board
 import busio
@@ -58,11 +59,21 @@ def layout(n:int, oled:adafruit_ssd1306) -> Image:
         i+=1
     return image
 
-def coloring(ind:int):
-    w
-    oled.image(image)
-    oled.show()
-    time.sleep(LOOPTIME)
+def coloring(ind:list, enum: int, oled: adafruit_ssd1306)->Image:
+    ########### ind should be size enum ######################
+    image = layout(enum, oled)
+    draw = ImageDraw.Draw(image)
+    xSpace = np.floor(128/(1+enum))
+    if ind:
+        i = 0
+        while i < enum:
+            if (enum == 1):
+                draw.rectangle((xSpace-1,yVals[ind[i]-1]-1,xSpace+1,yVals[ind[i]-1]+1), outline = 0, fill =255)
+            else:
+                x = 0 + ((i+1)*xSpace)
+                draw.rectangle((x-1,yVals[ind[i]-1]-1,x+1,yVals[ind[i]-1]+1),outline = 0,fill = 255)
+            i+=1
+    return image
 
 # draw.text((0, 0), "E1", font=font, fill=255)
 # draw.rectangle ((0,17,15,oled.height-1),outline = 255, fill =0);

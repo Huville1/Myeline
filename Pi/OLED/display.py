@@ -24,7 +24,13 @@ oled = adafruit_ssd1306.SSD1306_I2C(WIDTH, HEIGHT, i2c, addr=0x3C, reset=oled_re
 
 #number of electrodes:
 enum = 2
-image = layout(enum, oled)
+
+#highlighted electrodes
+hl = [3,4] 
+#testing for layout
+# image = layout(enum, oled)
+image = coloring(hl,enum,oled)
+#use this code
 oled.image(image)
 oled.show()
 time.sleep(LOOPTIME)
