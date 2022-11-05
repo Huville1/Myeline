@@ -18,6 +18,7 @@ def main(args):
     #create the I2C bus
     I2Cbus = smbus.SMBus(1)
     # with smbus.SMBUS(1) as I2Cbus:
+    time.sleep(1)
     i = 0
     while True:
         if (i == 6):
