@@ -6,7 +6,7 @@ I2C_SLAVE_ADDRESS = 8
 lights = [0,1,2,3,4,5]
 # I2C_SLAVE2_ADDRESS = 12
 # I2C_SLAVE3_ADDRESS = 13
-i = 0
+
 
 def ConvertStringsToBytes(src):
     converted = []
@@ -18,6 +18,7 @@ def main(args):
     #create the I2C bus
     I2Cbus = smbus.SMBus(1)
     # with smbus.SMBUS(1) as I2Cbus:
+    i = 0
     while True:
         if (i == 6):
             i= i-6
