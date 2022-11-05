@@ -1,8 +1,8 @@
 import sys
-import smbus2 as SMBus
+import smbus
 import time
 
-I2C_SLAVE_ADDRESS = 11
+I2C_SLAVE_ADDRESS = 8
 lights = [0,1,2,3,4,5]
 # I2C_SLAVE2_ADDRESS = 12
 # I2C_SLAVE3_ADDRESS = 13
@@ -16,7 +16,7 @@ def ConvertStringsToBytes(src):
 
 def main(args):
     #create the I2C bus
-    I2Cbus = SMBus(1)
+    I2Cbus = smbus.SMBus(1)
     # with smbus.SMBUS(1) as I2Cbus:
     while True:
         if (i == 6):
