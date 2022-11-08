@@ -9,4 +9,3 @@ if __name__ == '__main__':
             if byte != b'':
                 ints = int.from_bytes(byte,byteorder = 'big')
                 print(ints)
-            print(byte)
