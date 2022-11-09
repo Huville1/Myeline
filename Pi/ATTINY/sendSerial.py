@@ -1,6 +1,6 @@
 import serial 
 import numpy as np
-from matplotlib import pyplot as plt
+import matplotlib.pyplot as plt
 data = [] # all data collected from pins on module
 i = 0 # pin number
 temp = 0
