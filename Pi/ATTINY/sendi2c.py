@@ -3,7 +3,7 @@ import smbus
 import time
 
 I2C_SLAVE_ADDRESS = 4
-lights = [b'0',b'1',b'2',b'3',b'4',b'5']
+lights = [0,1,2,3,4,5]
 # I2C_SLAVE2_ADDRESS = 12
 # I2C_SLAVE3_ADDRESS = 13
 
@@ -27,7 +27,7 @@ def main(args):
         # .to_bytes(length=1, byteorder='little')
         #bytestoSend = ConvertStringsToBytes(message)
         print(message)
-        I2Cbus.write_byte(I2C_SLAVE_ADDRESS,0, message)
+        I2Cbus.write_byte_data(I2C_SLAVE_ADDRESS,0, message)
         time.sleep(5)
         i+=1
             
