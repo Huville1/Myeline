@@ -27,7 +27,7 @@ def main(args):
         # .to_bytes(length=1, byteorder='little')
         #bytestoSend = ConvertStringsToBytes(message)
         print(message)
-        I2Cbus.write_byte(I2C_SLAVE_ADDRESS, message)
+        I2Cbus.write_byte(I2C_SLAVE_ADDRESS,0, message)
         time.sleep(5)
         i+=1
             
