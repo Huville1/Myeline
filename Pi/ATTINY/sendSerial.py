@@ -8,7 +8,7 @@ i = 0 # pin number
 temp = 0
 
 ser = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)
-ser.open()
+# ser.open()
 if ser.is_open == True:
     print("\nAll right, serial port now open. Configuration:\n")
     print(ser, "\n") #print serial parameters
