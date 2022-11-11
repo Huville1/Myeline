@@ -1,8 +1,8 @@
 import serial 
 import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib.animation as animation
-from matplotlib import style
+# import matplotlib.pyplot as plt
+# import matplotlib.animation as animation
+# from matplotlib import style
 data = [] # all data collected from pins on module
 i = 0 # pin number
 temp = 0
