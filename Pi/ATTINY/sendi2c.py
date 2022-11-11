@@ -3,7 +3,7 @@ import smbus
 import time
 
 I2C_SLAVE_ADDRESS = 4
-lights = [0x00,0x01,0x02,0x03,0x04,0x05]
+lights = [b'0',b'1',b'2',b'3',b'4',b'5']
 # I2C_SLAVE2_ADDRESS = 12
 # I2C_SLAVE3_ADDRESS = 13
 
