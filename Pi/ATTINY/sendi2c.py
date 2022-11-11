@@ -23,7 +23,7 @@ def main(args):
     while True:
         if (i == 6):
             i= i-6
-        message = lights[i]
+        message = lights[i].to_bytes(length=1, byteorder='little')
         #bytestoSend = ConvertStringsToBytes(message)
         print(message)
         I2Cbus.write_byte_data(I2C_SLAVE_ADDRESS, 0, message)
