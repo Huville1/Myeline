@@ -13,44 +13,44 @@ if ser.is_open == True:
     print("\nAll right, serial port now open. Configuration:\n")
     print(ser, "\n") #print serial parameters
 
-#     while True:
-#         if ser.in_waiting >0:
-#             message = ser.readline()
-#             value = int(message)
-#             print(value)
+    while True:
+        if ser.in_waiting >0:
+            message = ser.readline()
+            value = int(message)
+            print(value)
 
 
 #showing the data: http://www.mikeburdis.com/wp/notes/plotting-serial-port-data-using-python-and-matplotlib/
 #creating figures
-fig = plt.figure()
-ax = fig.add_subplot(1,1,1)
-xs = [] #store x values
-ys = [] #store y values
-# i = 0
+# fig = plt.figure()
+# ax = fig.add_subplot(1,1,1)
+# xs = [] #store x values
+# ys = [] #store y values
+# # i = 0
 
-def animate(i,xs, ys):
-    #aquire data
+# def animate(i,xs, ys):
+#     #aquire data
     
-    ser.reset_input_buffer()
-    if ser.in_waiting >0:
-        message = ser.readline() #ascii
-        lmessage = message.split(b',')
-        i = int(lmessage[0])
-        value = int(message[1])
-        xs.append(i)
-        ys.append(value)
-        # i+=1
-        ax.clear()
-        ax.plot(xs,ys,label = 'signal') 
+#     ser.reset_input_buffer()
+#     if ser.in_waiting >0:
+#         message = ser.readline() #ascii
+#         lmessage = message.split(b',')
+#         i = int(lmessage[0])
+#         value = int(message[1])
+#         xs.append(i)
+#         ys.append(value)
+#         # i+=1
+#         ax.clear()
+#         ax.plot(xs,ys,label = 'signal') 
 
-        # format plot
-        plt.subplots_adjust(bottom = 0.30)
-        plt.title("Data Graph")
-        plt.ylabel("signal numbers")
-        plt.legend()
+#         # format plot
+#         plt.subplots_adjust(bottom = 0.30)
+#         plt.title("Data Graph")
+#         plt.ylabel("signal numbers")
+#         plt.legend()
         
-ani = animation.FuncAnimation(fig,animate, fargs = (xs,ys))
-plt.show()
+# ani = animation.FuncAnimation(fig,animate, fargs = (xs,ys))
+# plt.show()
 
         
 
