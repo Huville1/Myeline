@@ -1,24 +1,33 @@
 import serial 
 import numpy as np
+import time
+# from typing import Tuple
 # import matplotlib.pyplot as plt
 # import matplotlib.animation as animation
 # from matplotlib import style
 data = [] # all data collected from pins on module
 i = 0 # pin number
 temp = 0
-
-ser = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)
+def receive (secs:float) -> list: # takes in how long to read, output data  
+    data = []
+    ser = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)
 # ser.open()
-if ser.is_open == True:
-    print("\nAll right, serial port now open. Configuration:\n")
-    print(ser, "\n") #print serial parameters
-
-    while True:
+    if ser.is_open == True:
+        print("\nAll right, serial port now open. Configuration:\n")
+        print(ser, "\n") #print serial parameters
+    else:
+       print("Opening Serial Connections")
+       ser.open()
+       a = ser.is_open
+       print("Serial condition:" + str(a)) 
+    timeout = time.time() + secs
+    while time.time() < timeout:
         if ser.in_waiting >0:
             message = ser.readline()
             value = int(message)
             print(value)
-
+            data.append(value)
+    return data
 
 #showing the data: http://www.mikeburdis.com/wp/notes/plotting-serial-port-data-using-python-and-matplotlib/
 #creating figures

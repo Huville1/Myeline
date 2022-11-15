@@ -14,27 +14,25 @@ def ConvertStringsToBytes(src):
         converted.append(ord(b))
     return converted
 
-def main(args):
+def elecSend(modNum: int, elecNum: int): # pass in: slave Addy, and electrode num
     #create the I2C bus
     I2Cbus = smbus.SMBus(1)
     # with smbus.SMBUS(1) as I2Cbus:
     time.sleep(1)
-    i = 0
-    while True:
-        if (i == 6):
-            i= i-6
-        message = lights[i]
-        # .to_bytes(length=1, byteorder='little')
-        #bytestoSend = ConvertStringsToBytes(message)
-        print(message)
-        I2Cbus.write_byte_data(I2C_SLAVE_ADDRESS,0, message)
-        time.sleep(1.667)
-        i+=1
-            
-    return 0
-if __name__ == '__main__':
-    try:
-       main(sys.argv)
-    except KeyboardInterrupt:
-       print("program was stopped manually")
-    input()
+    # i = 0
+    # while True:
+    #     if (i == 6):
+    #         i= i-6
+    #     message = lights[i]
+    #     # .to_bytes(length=1, byteorder='little')
+    #     #bytestoSend = ConvertStringsToBytes(message)
+    #     print(message)
+    I2Cbus.write_byte_data(modNum,0, elecNum)
+    # time.sleep(1.667)  ----> time set outside of function for easy modifications
+        # i+=1
+# if __name__ == '__main__':
+#     try:
+#        main(sys.argv)
+#     except KeyboardInterrupt:
+#        print("program was stopped manually")
+#     input()
