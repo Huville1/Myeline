@@ -25,13 +25,12 @@ def receive (secs:float) -> list: # takes in how long to read, output data
     while time.time() < timeout:
         if ser.in_waiting >0:
             message = ser.readline()
-            print(message)
-            print(type(message))
-            if ('x' not in message):
-                # print(message)
-                value = int(message)
-                print(value)
-                data.append(value)
+            # print(message)
+            # print(type(message))
+            # print(message)
+            value = int(float(message))
+            print(value)
+            data.append(value)
     return data
 
 #showing the data: http://www.mikeburdis.com/wp/notes/plotting-serial-port-data-using-python-and-matplotlib/
