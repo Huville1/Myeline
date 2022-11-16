@@ -58,8 +58,8 @@ for col in file:
 allData = []
 allData.append(left)
 allData.append(left)
-allData.append(left)
 allData.append(middle)
+allData.append(right)
 allData.append(right)
 allData.append(right)
 
