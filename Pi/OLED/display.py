@@ -1,4 +1,4 @@
-from midline import layout, coloring
+from OLED.midline import layout, coloring
 import time
 import board
 import busio
