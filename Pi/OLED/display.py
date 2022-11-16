@@ -24,13 +24,13 @@ def display(index:list, enums:int):
     oled = adafruit_ssd1306.SSD1306_I2C(WIDTH, HEIGHT, i2c, addr=0x3C, reset=oled_reset)
 
     #number of electrodes:
-    enum = 2
+    # enum = 2
 
     #highlighted electrodes
-    hl = [3,4] 
+    # hl = [3,4] 
     #testing for layout
     # image = layout(enum, oled)
-    image = coloring(hl,enum,oled)
+    image = coloring(index,enums,oled)
     #use this code
     # oled.image(image) # -> change this image.show()
     # oled.show()
