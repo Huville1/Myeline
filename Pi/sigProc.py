@@ -45,6 +45,9 @@ def sigprocess(data:list, thresh: 750)->list:
     indDisp = []
     while j < len(data):
         dSet = data[j]
+        dSet = dSet[1:]
+        dSet = [int(x) for x in dSet]
+        #dSet = int(dSet)
         temp = []
         editedData = np.convolve(dSet, np.ones(3)/3, mode='valid')
 
