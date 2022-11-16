@@ -25,7 +25,7 @@ addresses =[4]
 #insert signal processing info
 #variables
 j = 0
-data = receive(tempD)
+data = receive(5)
 print(len(data))
 allData.append(data)
 averages = [] # 6*len(addresses long)
