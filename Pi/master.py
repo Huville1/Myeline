@@ -28,27 +28,44 @@ j = 0
 
 averages = [] # 6*len(addresses long)
 indDisp = []
+threshold = 750
 #iterating through all columns in list
 while j < 6*len(addresses):
     dSet = allData[j]
-    minVal = min(dSet)
-    maxVal = max(dSet)
-    if (abs(maxVal) > abs(minVal)):
-        #indicates that there are regular peaks
-        peaks,_ = find_peaks(find_peaks(dSet))
-        pHeight = dSet[peaks]
-        avg = np.average(pHeight)
-        averages.append(avg)
-    elif(abs(maxVal) < abs(minVal)):
-        #indicates that peaks are inverted
-        dSet = dSet * -1
-        peaks,_ = find_peaks(find_peaks(dSet))
-        pHeight = dSet[peaks]
-        avg = np.average(pHeight)
-        averages.append(avg)
+    temp = []
+    editedData = np.convolve(dSet, np.ones(3)/3, mode='valid')
+    thresData = editedData - threshold
+    abval = abs(thresData)
+    peaks,_ = find_peaks(abval,height = (0,900), distance = 26) #index of where peak is
+    for peak in peaks:
+        temp.append(thresData[peak])
+    avg = np.average(temp)
+    averages.append(avg)
     if (((j+1) %6) == 0):
         midline = np.argmin(averages[j-5:j])
         indDisp.append(midline) # -> should give minimum avg of peak avgs
     j+=1
+
+
+
+
+
+
+    # minVal = min(thresData)
+    # maxVal = max(thresData)
+    # if (abs(maxVal) > abs(minVal)):
+    #     #indicates that there are regular peaks
+    #     peaks,_ = find_peaks(find_peaks(dSet))
+    #     pHeight = dSet[peaks]
+    #     avg = np.average(pHeight)
+    #     averages.append(avg)
+    # elif(abs(maxVal) < abs(minVal)):
+    #     #indicates that peaks are inverted
+    #     dSet = dSet * -1
+    #     peaks,_ = find_peaks(find_peaks(dSet))
+    #     pHeight = dSet[peaks]
+    #     avg = np.average(pHeight)
+    #     averages.append(avg)
+    
 #display midline
 display(indDisp,len(addresses))
