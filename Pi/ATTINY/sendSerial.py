@@ -28,7 +28,7 @@ def receive (secs:float) -> list: # takes in how long to read, output data
             # print(message)
             # print(type(message))
             # print(message)
-            value = int(float(message))
+            value = float(message)
             print(value)
             data.append(value)
     return data
