@@ -11,26 +11,28 @@ tempD = []
 i = 0
 addresses =[4]
 #need to find how many electrodes are attached
-for address in addresses:
-    while i < 6: # ----> looping through all electrode pins
-        #send signal to module
-        elecSend(address, i)
-        time.sleep(1.667)
-        # receive 
-        tempD = receive(5) #receiving data for 5 seconds
-        allData.append(tempD)
-        tempD =[]
-        i+=1
+# for address in addresses:
+#     while i < 6: # ----> looping through all electrode pins
+#         #send signal to module
+#         elecSend(address, i)
+#         time.sleep(1.667)
+#         # receive 
+#         tempD = receive(5) #receiving data for 5 seconds
+#         allData.append(tempD)
+#         tempD =[]
+#         i+=1
 
 #insert signal processing info
 #variables
 j = 0
-
+data = receive(tempD)
+print(len(data))
+allData.append(data)
 averages = [] # 6*len(addresses long)
 indDisp = []
 threshold = 750
 #iterating through all columns in list
-while j < 6*len(addresses):
+while j < len(allData):
     dSet = allData[j]
     temp = []
     editedData = np.convolve(dSet, np.ones(3)/3, mode='valid')
@@ -45,7 +47,7 @@ while j < 6*len(addresses):
         midline = np.argmin(averages[j-5:j])
         indDisp.append(midline) # -> should give minimum avg of peak avgs
     j+=1
-
+print(averages)
 
 
 
