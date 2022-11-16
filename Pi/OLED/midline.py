@@ -27,7 +27,7 @@ def layout(n:int, oled:adafruit_ssd1306) -> Image:
     # Draw a white background
     draw.rectangle((0, 0, oled.width, oled.height), outline=255, fill=255)
 
-    font = ImageFont.truetype('PixelOperator.ttf', 15)
+    font = ImageFont.truetype('OLED/PixelOperator.ttf', 15)
 
     draw.rectangle((0, 0, oled.width, oled.height), outline=0, fill=0)
     draw.line((0,16,oled.width,16), fill = 255, width= 1)
