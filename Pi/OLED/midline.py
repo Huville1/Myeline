@@ -57,6 +57,8 @@ def layout(n:int, oled:adafruit_ssd1306) -> Image:
             draw.rectangle ((x-2,yVals[4]-2,x+2,yVals[4]+2),outline = 255, fill = 0)
             draw.rectangle ((x-2,yVals[5]-2,x+2,yVals[5]+2),outline = 255, fill = 0)
         i+=1
+    print("image return")
+
     return image
 
 def coloring(ind:list, enum: int, oled: adafruit_ssd1306)->Image:
@@ -73,6 +75,7 @@ def coloring(ind:list, enum: int, oled: adafruit_ssd1306)->Image:
                 x = 0 + ((i+1)*xSpace)
                 draw.rectangle((x-2,yVals[ind[i]-1]-2,x+2,yVals[ind[i]-1]+2),outline = 0,fill = 255)
             i+=1
+    print("image from coloring is returned")
     return image
 
 # draw.text((0, 0), "E1", font=font, fill=255)
