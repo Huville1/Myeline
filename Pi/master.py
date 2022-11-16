@@ -1,7 +1,7 @@
 import numpy as np
 from OLED.display import display
 # from ATTINY.sendi2c import elecSend
-# from ATTINY.sendSerial import receive
+from ATTINY.sendSerial import receive
 import time
 from scipy.signal import find_peaks # need to import scipy
 from sigProc import sigprocess
@@ -56,13 +56,16 @@ for col in file:
 # print(len(right))
 
 allData = []
-allData.append(left)
-allData.append(left)
-allData.append(middle)
-allData.append(right)
-allData.append(right)
-allData.append(right)
+# allData.append(left)
+# allData.append(left)
+# allData.append(middle)
 
+# allData.append(right)
+# allData.append(right)
+tempD = receive(5)
+
+allData.append(tempD)
+print("data is appended")
 averages = [] # 6*len(addresses long)
 indDisp = []
 threshold = 750
