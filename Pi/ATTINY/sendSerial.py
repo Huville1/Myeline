@@ -21,6 +21,7 @@ def receive (secs:float) -> list: # takes in how long to read, output data
        a = ser.is_open
        print("Serial condition:" + str(a)) 
     timeout = time.time() + secs
+    ser.flush()
     while time.time() < timeout:
         if ser.in_waiting >0:
             message = ser.readline()
