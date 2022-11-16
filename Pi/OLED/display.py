@@ -32,7 +32,7 @@ def display(index:list, enums:int):
     # image = layout(enum, oled)
     image = coloring(index,enums,oled)
     #use this code
-    # oled.image(image) # -> change this image.show()
-    # oled.show()
-    image.show() # showing image
+    oled.image(image) # -> change this image.show()
+    oled.show()
+    # image.show() # showing image
     time.sleep(LOOPTIME)
