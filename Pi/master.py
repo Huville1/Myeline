@@ -62,9 +62,14 @@ allData = []
 
 # allData.append(right)
 # allData.append(right)
-tempD = receive(5)
+i = 0
+while i < 6:
+    tempD = receive(5)
+    allData.append(tempD)
+    print("switch location")
+    time.sleep(5)
+    i+=1
 
-allData.append(tempD)
 print("data is appended")
 averages = [] # 6*len(addresses long)
 indDisp = []
