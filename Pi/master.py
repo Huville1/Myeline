@@ -64,6 +64,7 @@ allData = []
 # allData.append(right)
 i = 0
 while i < 6:
+    print("start stim")
     tempD = receive(5)
     allData.append(tempD)
     print("switch location")
