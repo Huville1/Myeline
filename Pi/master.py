@@ -1,5 +1,6 @@
 import numpy as np
-from OLED.display import display
+# from OLED.display import display
+from Screen.display import display
 # from ATTINY.sendi2c import elecSend
 from ATTINY.sendSerial import receive
 import time
@@ -78,6 +79,8 @@ threshold = 750
 indDisp = sigprocess(allData,thresh=threshold)
 print(indDisp)
 
+#print display with new display
+display(indDisp, len(addresses))
 
 
 
@@ -127,4 +130,4 @@ print(indDisp)
     #     averages.append(avg)
     
 #display midline
-display(indDisp,len(addresses))
+# display(indDisp,len(addresses))
