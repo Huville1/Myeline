@@ -20,10 +20,12 @@ for address in addresses:
         elecSend(address, i)
         time.sleep(1.667)
 #         # receive 
-        tempD = receive(5) #receiving data for 5 seconds
-        allData.append(tempD)
-        tempD =[]
+        # tempD = receive(5) #receiving data for 5 seconds
+        # allData.append(tempD)
+        # tempD =[]
+        print(i)
         i+=1
+
 
 #insert signal processing info
 #variables
@@ -78,15 +80,15 @@ for address in addresses:
 #     time.sleep(5)
 #     i+=1
 
-print("data is appended")
-averages = [] # 6*len(addresses long)
-indDisp = []
-threshold = 750
-indDisp = sigprocess(allData,thresh=threshold)
-print(indDisp)
+# print("data is appended")
+# averages = [] # 6*len(addresses long)
+# indDisp = []
+# threshold = 750
+# indDisp = sigprocess(allData,thresh=threshold)
+# print(indDisp)
 
-#print display with new display
-display(indDisp, len(addresses))
+# #print display with new display
+# display(indDisp, len(addresses))
 
 
 
