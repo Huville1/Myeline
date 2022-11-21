@@ -74,6 +74,29 @@ def sigprocess(data:list, thresh: 750)->list:
             indDisp.append(midline) # -> should give minimum avg of peak avgs
         j+=1
     # print(averages)
+
     print(indDisp)
     return indDisp
 # print(peaks)
+
+
+def sigdebug(data:list, thresh: 750)->list:
+    j=0
+    d= []
+    while j < len(data):
+        dSet = data[j]
+        dSet = dSet[1:]
+        dSet = [int(x) for x in dSet]
+        #dSet = int(dSet)
+        d.extend(dSet)
+        temp = []
+        j+=1
+    editedData = np.convolve(d, np.ones(3)/3, mode='valid')
+
+    thresData = editedData - thresh
+
+    abval = abs(thresData)
+    peaks,_ = find_peaks(abval,height = (7,100), distance = 26) #index of where peak is
+    plt.plot(d)
+    plt.plot(peaks, d[peaks], "x")
+    plt.show()

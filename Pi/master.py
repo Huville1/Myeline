@@ -5,8 +5,9 @@ from ATTINY.sendi2c import elecSend
 from ATTINY.sendSerial import receive
 import time
 from scipy.signal import find_peaks # need to import scipy
-from sigProc import sigprocess
+from sigProc import sigprocess, sigdebug
 import csv
+import matplotlib.pyplot as plt
 #insert send stim signal to attiny code
 allData = [] # -> all data will be 6*len(addresses) columns
 tempD = []
@@ -20,13 +21,12 @@ for address in addresses:
         elecSend(address, i)
         # time.sleep(1.667)
 #         # receive 
-        # tempD = receive(1.667) #receiving data for 5 seconds
-        # allData.append(tempD)
-        # tempD =[]
+        tempD = receive(1.667) #receiving data for 5 seconds
+        allData.append(tempD)
+        tempD =[]
         print(i)
 
         i+=1
-
 
 #insert signal processing info
 #variables
@@ -81,12 +81,12 @@ for address in addresses:
 #     time.sleep(5)
 #     i+=1
 
-# print("data is appended")
-# averages = [] # 6*len(addresses long)
-# indDisp = []
-# threshold = 750
-# indDisp = sigprocess(allData,thresh=threshold)
-# print(indDisp)
+print("data is appended")
+averages = [] # 6*len(addresses long)
+indDisp = []
+threshold = 750
+# data = sigprocess(allData,thresh=threshold)
+sigdebug(allData,threshold)
 
 # #print display with new display
 # display(indDisp, len(addresses))
