@@ -11,7 +11,7 @@ def layout(n:int, w:int, h: int)->Image:
     #reseting the background to have a completely black one
     # draw.rectangle((0, 0, w, h), outline=255, fill=(255)
     draw.rectangle((0, 0, w, h), outline=0, fill=0)
-    font = ImageFont.truetype('arial.ttf', 80)
+    font = ImageFont.truetype(r"./Users/erbear/Desktop/Myeline/Pi/Screen/arial.ttf", 80)
     #drawing line to separate the text from electrodes
     draw.line((0,124,w,124), fill = (255,255,0), width= 1)
     enum = n # limit is 7 electrodes

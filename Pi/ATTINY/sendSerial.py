@@ -12,14 +12,14 @@ def receive (secs:float) -> list: # takes in how long to read, output data
     data = []
     ser = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)
 # ser.open()
-    if ser.is_open == True:
-        print("\nAll right, serial port now open. Configuration:\n")
-        print(ser, "\n") #print serial parameters
-    else:
-       print("Opening Serial Connections")
-       ser.open()
-       a = ser.is_open
-       print("Serial condition:" + str(a)) 
+    # if ser.is_open == True:
+    #     # print("\nAll right, serial port now open. Configuration:\n")
+    #     # print(ser, "\n") #print serial parameters
+    # # else:
+    # #    print("Opening Serial Connections")
+    #    ser.open()
+    #    a = ser.is_open
+    #    print("Serial condition:" + str(a)) 
     timeout = time.time() + secs
     ser.flush()
     while time.time() < timeout:
