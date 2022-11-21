@@ -23,7 +23,8 @@ for address in addresses:
         # tempD = receive(1.667) #receiving data for 5 seconds
         # allData.append(tempD)
         # tempD =[]
-        # print(i)
+        print(i)
+
         i+=1
 
 
