@@ -8,12 +8,14 @@ from scipy.signal import find_peaks # need to import scipy
 from sigProc import sigprocess, sigdebug
 import csv
 import matplotlib.pyplot as plt
+import serial 
 #insert send stim signal to attiny code
 allData = [] # -> all data will be 6*len(addresses) columns
 tempD = []
 # loop
 i = 0
 addresses =[4]
+ser = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)
 #need to find how many electrodes are attached
 for address in addresses:
     while i < 6: # ----> looping through all electrode pins
@@ -21,7 +23,7 @@ for address in addresses:
         elecSend(address, i)
         # time.sleep(1.667)
 #         # receive 
-        tempD = receive(1.667) #receiving data for 5 seconds
+        tempD = receive(ser, 1.667) #receiving data for 5 seconds
         allData.append(tempD)
         tempD =[]
         print(i)
@@ -84,12 +86,39 @@ for address in addresses:
 print("data is appended")
 averages = [] # 6*len(addresses long)
 indDisp = []
-threshold = 750
-# data = sigprocess(allData,thresh=threshold)
-sigdebug(allData,threshold)
+threshold = 733
+data = sigprocess(allData,thresh=threshold)
+
+# #signal debugging
+# processed = sigdebug(allData,threshold)
+# thresData = processed[0]
+# peaks = processed[1]
+# x = [x for x in range(len(thresData))]
+# #plotting data
+
+
+# #writing to csv
+# f = open('/home/pi/Myeline/Pi/data.csv', 'w')
+
+# # create the csv writer
+# writer = csv.writer(f)
+
+# # write a row to the csv file
+# for index in range(len(x)):
+#     writer.writerow([x[index],thresData[index]])
+
+# # close the file
+# f.close()
+# # plotting data
+# plt.plot(thresData)
+# plt.plot(peaks, thresData[peaks],"x")
+# plt.show()
+
+
+
 
 # #print display with new display
-# display(indDisp, len(addresses))
+display(data, len(addresses))
 
 
 

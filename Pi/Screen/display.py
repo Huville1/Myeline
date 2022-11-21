@@ -6,8 +6,10 @@ import time
 import numpy as np
 
 def display(index:list, enums:int):
+
     Width = 1024
     Height = 512 #scale up by 8
+    #index has 2 items (lowest value and adjacent )
     image = coloring(index, enums, Width,Height)
     # image.show()
     a = ImageShow.show(image)

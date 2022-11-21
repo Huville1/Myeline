@@ -8,9 +8,9 @@ import time
 data = [] # all data collected from pins on module
 i = 0 # pin number
 temp = 0
-def receive (secs:float) -> list: # takes in how long to read, output data  
+def receive (ser: serial.Serial, secs:float) -> list: # takes in how long to read, output data  
     data = []
-    ser = serial.Serial('/dev/ttyUSB0', 9600, timeout=1)
+    
 # ser.open()
     # if ser.is_open == True:
     #     # print("\nAll right, serial port now open. Configuration:\n")

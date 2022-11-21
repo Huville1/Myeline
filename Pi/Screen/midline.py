@@ -11,7 +11,7 @@ def layout(n:int, w:int, h: int)->Image:
     #reseting the background to have a completely black one
     # draw.rectangle((0, 0, w, h), outline=255, fill=(255)
     draw.rectangle((0, 0, w, h), outline=0, fill=0)
-    font = ImageFont.truetype(r"./Users/erbear/Desktop/Myeline/Pi/Screen/arial.ttf", 80)
+    font = ImageFont.truetype(r"/home/pi/Myeline/Pi/Screen/arial.ttf", 80)
     #drawing line to separate the text from electrodes
     draw.line((0,124,w,124), fill = (255,255,0), width= 1)
     enum = n # limit is 7 electrodes
@@ -67,14 +67,22 @@ def coloring(ind:list, enum: int, w:int, h:int)->Image:
     image = layout(enum, w,h)
     draw = ImageDraw.Draw(image)
     xSpace = np.floor(864/(1+enum))
-    if ind:
-        i = 0
-        while i < enum:
-            if (enum == 1):
-                draw.ellipse((xSpace-15+80,yVals[ind[i]]-15,xSpace+15+80,yVals[ind[i]]+15), outline = 0, fill =(255,255,255))
-            else:
-                x = 0 + ((i+1)*xSpace)
-                draw.ellipse((x-15+80,yVals[ind[i]]-15,x+15+80,yVals[ind[i]]+15),outline = 0,fill = (255,255,255))
-            i+=1
+    print("before if")
+    print(ind)
+    lowest = np.array(ind[0])
+    adj = np.array(ind[1])
+    mins = np.minimum(adj,lowest)
+    maxs = np.maximum(adj,lowest)
+    
+    i=0
+    while i < enum:
+        diff = ((yVals[maxs[i]]-yVals[mins[i]])/2)
+        if (enum == 1):
+            
+            draw.ellipse((xSpace-15+80,diff+yVals[mins[i]]-15,xSpace+15+80,diff+yVals[mins[i]]+15), outline = 0, fill =(255,255,0))
+        else:
+            x = 0 + ((i+1)*xSpace)
+            draw.ellipse((x-15+80,diff+yVals[mins[i]]-15,x+15+80,diff+yVals[mins[i]]+15),outline = 0,fill = (255,255,0))
+        i+=1
     print("image from coloring is returned")
     return image

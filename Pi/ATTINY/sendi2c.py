@@ -28,6 +28,7 @@ def elecSend(modNum: int, elecNum: int): # pass in: slave Addy, and electrode nu
     #     #bytestoSend = ConvertStringsToBytes(message)
     #     print(message)
     I2Cbus.write_byte_data(modNum,0, elecNum)
+    I2Cbus.close()
     # time.sleep(1.667)  ----> time set outside of function for easy modifications
         # i+=1
 # if __name__ == '__main__':
