@@ -1,7 +1,7 @@
 from PIL import Image, ImageDraw, ImageFont, ImageColor, ImageShow
 import matplotlib.pyplot as plt
 # from OLED.midline import layout, coloring
-from midline import layout, coloring
+from Screen.midline import layout, coloring
 import time
 import numpy as np
 
