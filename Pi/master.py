@@ -18,7 +18,7 @@ for address in addresses:
     while i < 6: # ----> looping through all electrode pins
         #send signal to module
         elecSend(address, i)
-        # time.sleep(1.667)
+        time.sleep(1.667)
 #         # receive 
         tempD = receive(1.667) #receiving data for 5 seconds
         allData.append(tempD)
