@@ -20,7 +20,7 @@ for address in addresses:
         elecSend(address, i)
         time.sleep(1.667)
 #         # receive 
-        tempD = receive(1.667) #receiving data for 5 seconds
+        tempD = receive(5) #receiving data for 5 seconds
         allData.append(tempD)
         tempD =[]
         print(i)
