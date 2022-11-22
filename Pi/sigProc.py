@@ -69,64 +69,95 @@ def sigprocess(data:list, thresh: 750)->list:
         # plt.close()
         avg = np.average(temp)
         averages.append(avg)
+        
         if (((j+1)%6) == 0):
             print(averages)
-            lowest = np.argmin(np.abs(averages[j-4:j]))+1 #should be j-5,j+1m, without +1
-            indDisp.append(lowest)
-            #if lowest number is positive
-            if(averages[lowest] >0):
-                #if lowest index == 0
-                if (lowest == 0):
-                    #if adjacent index is neg
-                    if (averages[lowest+1]<0):
-                        #add it to adjacent list
-                        adj.append(lowest+1)
-                    else:
-                        #else add lowest to adjacent list
-                        adj.append(lowest)
-                #if lowest index == 5
-                elif (lowest == 5):
-                    #if adjacent index is neg
-                    if (averages[lowest-1]<0):
-                        #add it to adjacent list
-                        adj.append(lowest+1)
-                    else:
-                        #else add lowest to adjacent list
-                        adj.append(lowest)
-                #for all middle numbers, check both sides
-                else: 
-                    if (averages[lowest-1]<0):
-                        adj.append(lowest-1)
-                    elif(averages[lowest+1]<0):
-                        adj.append(lowest+1)
-                    else:
-                        adj.append(lowest)
-            #checking if lowest value produces neg number
-            elif(averages[lowest] <0):
-                if (lowest == 0):
-                    #if adjacent index is neg
-                    if (averages[lowest+1]>0):
-                        #add it to adjacent list
-                        adj.append(lowest+1)
-                    else:
-                        #else add lowest to adjacent list
-                        adj.append(lowest)
-                #if lowest index == 5
-                elif (lowest == 5):
-                    #if adjacent index is neg
-                    if (averages[lowest-1]>0):
-                        #add it to adjacent list
-                        adj.append(lowest+1)
-                    else:
-                        #else add lowest to adjacent list
-                        adj.append(lowest)
+            k = j-5
+            while k < j+1:
+                if (k%6 == 0):
+                    if (averages[k]>0 and averages[k+1]<0 and averages[k+2]<0):
+                        indDisp.append(k)
+                        adj.append(k+1)
+                    elif(averages[k]<0 and averages[k+1]>0 and averages[k+2]>0):
+                        indDisp.append(k)
+                        adj.append(k+1)
+                elif(k%5 == 0):
+                    if (averages[k]>0 and averages[k-1]<0 and averages[k-2]<0):
+                        indDisp.append(k)
+                        adj.append(k+1)
+                    elif(averages[k]<0 and averages[k-1]>0 and averages[k-2]>0):
+                        indDisp.append(k)
+                        adj.append(k+1)
                 else:
-                    if (averages[lowest-1]>0):
-                        adj.append(lowest-1)
-                    elif(averages[lowest+1]>0):
-                        adj.append(lowest+1)
-                    else:
-                        adj.append(lowest)
+                    if (averages[k] == 0 and ((averages[k-1]<0 and averages[k+1]>0))or (averages[k-1]>0 and averages[k+1]<0)):
+                        indDisp.append(k)
+                        adj.append(k)
+                    if (averages[k]>0 and averages[k+1]<0 and averages[k-1]>0):
+                        indDisp.append(k)
+                        adj.append(k+1)
+                    elif(averages[k]<0 and averages[k+1]>0 and averages[k-1]<0):
+                        indDisp.append(k)
+                        adj.append(k+1)
+                k+=1
+            
+            
+            
+            # lowest = np.argmin(np.abs(averages[j-5:j+1])) #should be j-5,j+1m, without +1
+            # indDisp.append(lowest)
+            # #if lowest number is positive
+            # if(averages[lowest] >0):
+            #     #if lowest index == 0
+            #     if (lowest == 0):
+            #         #if adjacent index is neg
+            #         if (averages[lowest+1]<0):
+            #             #add it to adjacent list
+            #             adj.append(lowest+1)
+            #         else:
+            #             #else add lowest to adjacent list
+            #             adj.append(lowest)
+            #     #if lowest index == 5
+            #     elif (lowest == 5):
+            #         #if adjacent index is neg
+            #         if (averages[lowest-1]<0):
+            #             #add it to adjacent list
+            #             adj.append(lowest+1)
+            #         else:
+            #             #else add lowest to adjacent list
+            #             adj.append(lowest)
+            #     #for all middle numbers, check both sides
+            #     else: 
+            #         if (averages[lowest-1]<0):
+            #             adj.append(lowest-1)
+            #         elif(averages[lowest+1]<0):
+            #             adj.append(lowest+1)
+            #         else:
+            #             adj.append(lowest)
+            # #checking if lowest value produces neg number
+            # elif(averages[lowest] <0):
+            #     if (lowest == 0):
+            #         #if adjacent index is neg
+            #         if (averages[lowest+1]>0):
+            #             #add it to adjacent list
+            #             adj.append(lowest+1)
+            #         else:
+            #             #else add lowest to adjacent list
+            #             adj.append(lowest)
+            #     #if lowest index == 5
+            #     elif (lowest == 5):
+            #         #if adjacent index is neg
+            #         if (averages[lowest-1]>0):
+            #             #add it to adjacent list
+            #             adj.append(lowest+1)
+            #         else:
+            #             #else add lowest to adjacent list
+            #             adj.append(lowest)
+            #     else:
+            #         if (averages[lowest-1]>0):
+            #             adj.append(lowest-1)
+            #         elif(averages[lowest+1]>0):
+            #             adj.append(lowest+1)
+            #         else:
+            #             adj.append(lowest)
              # -> should give minimum avg of peak avgs
         j+=1
     # print(averages)
